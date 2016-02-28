@@ -1,0 +1,6 @@
+This is InteliAutomataMC. Originally developed to be used in Epic Planet Minecraft Server.
+It depends on InteliAutomata by Neder. It is licensed under GPLv3 and it can be found in /InteliAutomata/COPYING
+
+Currently supported platforms:
+Bungeecord
+Bukkit

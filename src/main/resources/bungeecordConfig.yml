@@ -1,0 +1,5 @@
+default: false
+except: []
+lang:
+  ko: §e[!] 한글 채팅이 비활성화됩니다.
+  unko: §e[!] 한글 채팅이 활성화됩니다.

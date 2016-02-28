@@ -1,0 +1,31 @@
+name: InteliAutomataMC
+version: 1.0.0-rc.1
+description: Minecraft server mod to help users input Hangul.
+load: STARTUP
+author: Final Child
+website: iamc.epicpla.net
+main: net.epicpla.inteliautomatamc.bukkit.InteliAutomataBukkit
+database: false
+commands:
+  ko:
+    description: Start using hangul conversion.
+    aliases: setko
+    permission: inteliautomata.ko
+    permission-message: You do not have permission <permission>
+    usage: "usage: /ko"
+  unko:
+    description: Stop using hangul conversion.
+    aliases: setko
+    permission: inteliautomata.unko
+    permission-message: You do not have permission <permission>
+    usage: "usage: /unko"
+permissions:
+  inteliautomatabukkit.chat:
+    description: Allows you to use hangul conversion.
+    default: true
+  inteliautomatabukkit.ko:
+    description: Allows you to start using hangul conversion.
+    default: true
+  inteliautomatabukkit.unko:
+    description: Allows you to stop using hangul conversion.
+    default: true

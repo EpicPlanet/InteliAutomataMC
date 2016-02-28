@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ InteliAutomataMC - Minecraft server mod to help users input Hangul.
+  ~ Copyright (C) 2016 Final Child
+  ~
+  ~ This file is part of InteliAutomataMC.
+  ~
+  ~ InteliAutomataMC is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ InteliAutomataMC is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with InteliAutomataMC.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.epicpla</groupId>
+    <artifactId>inteliautomatamc</artifactId>
+    <version>1.0.0-rc.1</version>
+    <packaging>jar</packaging>
+
+    <name>InteliAutomataMC</name>
+    <description>Minecraft server mod to help users input Hangul.</description>
+    <url>http://iamc.epicpla.net/</url>
+    <inceptionYear>2016</inceptionYear>
+    <organization>
+        <name>Epic Planet Minecraft Server</name>
+        <url>https://epicpla.net/</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License, Version 3</name>
+            <url>http://www.gnu.org/licenses/agpl.html</url>
+            <distribution>repo</distribution>
+            <comments>We are AGPL</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Final Child</name>
+            <email>finalchild@epicpla.net</email>
+            <url>https://github.com/fcreloaded</url>
+            <organization>Epic Planet Minecraft Server</organization>
+            <organizationUrl>https://epicpla.net/</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>Asia/Seoul</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:fcreloaded/InteliAutomataMC.git</connection>
+        <developerConnection>scm:git:git@github.com:fcreloaded/InteliAutomataMC.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>git@github.com:fcreloaded/InteliAutomataMC.git</url>
+    </scm>
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/fcreloaded/InteliAutomataMC/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>CircleCI</system>
+        <url>https://circleci.com/gh/fcreloaded/InteliAutomataMC</url>
+    </ciManagement>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>me.neder</groupId>
+            <artifactId>inteliautomata</artifactId>
+            <version>1.0.6</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.8-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <id>ossrh-snapshots</id>
+            <name>OSSRH-Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
