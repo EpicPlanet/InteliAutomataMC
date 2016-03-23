@@ -25,6 +25,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerChatTabCompleteEvent;
 
 public class ChatListener implements Listener {
 
@@ -39,5 +40,12 @@ public class ChatListener implements Listener {
         if (!event.isCancelled())
             if (plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && event.getPlayer().hasPermission("inteliautomatabukkit.chat") && !plugin.getCore().isException(event.getMessage()))
                 event.setMessage(InteliAutomata.convert(event.getMessage()));
+    }
+
+    @EventHandler(priority = EventPriority.LOW)
+    public void onTab(PlayerChatTabCompleteEvent event) {
+        if (!plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && plugin.getCore().useTab)  {
+            event.getTabCompletions().add(InteliAutomata.convert(event.getLastToken()));
+        }
     }
 }

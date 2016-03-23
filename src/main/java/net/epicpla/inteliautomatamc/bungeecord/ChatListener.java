@@ -23,6 +23,7 @@ package net.epicpla.inteliautomatamc.bungeecord;
 import me.neder.inteliautomata.InteliAutomata;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.ChatEvent;
+import net.md_5.bungee.api.event.TabCompleteEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 import net.md_5.bungee.event.EventPriority;
@@ -40,5 +41,15 @@ public class ChatListener implements Listener {
         if (!event.isCancelled() && !event.isCommand() && event.getSender() instanceof ProxiedPlayer)
             if (plugin.getCore().isInputtingKorean(((ProxiedPlayer) event.getSender()).getUniqueId()) && ((ProxiedPlayer) event.getSender()).hasPermission("inteliautomatabungeecord.chat") && !plugin.getCore().isException(event.getMessage()))
                 event.setMessage(InteliAutomata.convert(event.getMessage()));
+    }
+
+    @EventHandler(priority = EventPriority.LOW)
+    public void onTab(TabCompleteEvent event) {
+        if (!event.isCancelled() && event.getSender() instanceof ProxiedPlayer)
+            if (!plugin.getCore().isInputtingKorean(((ProxiedPlayer) event.getSender()).getUniqueId()) && plugin.getCore().useTab)  {
+                String[] cursor = event.getCursor().split(" ");
+                String lastToken = cursor[cursor.length - 1];
+                event.getSuggestions().add(InteliAutomata.convert(lastToken));
+            }
     }
 }

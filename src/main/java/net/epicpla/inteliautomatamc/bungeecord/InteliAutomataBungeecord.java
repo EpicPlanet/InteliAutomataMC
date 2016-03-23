@@ -63,6 +63,7 @@ public class InteliAutomataBungeecord extends Plugin {
 
         core = new InteliAutomataMC();
         core.isDefault = configuration.getBoolean("default");
+        core.useTab = configuration.getBoolean("useTab");
         core.exception = configuration.getStringList("except");
         core.opt = Collections.synchronizedList(configuration.getStringList("opt").stream().map(UUID::fromString).collect(Collectors.toList()));
         core.koMessage = configuration.getString("lang.ko");
@@ -76,6 +77,7 @@ public class InteliAutomataBungeecord extends Plugin {
     @Override
     public void onDisable() {
         configuration.set("default", core.isDefault);
+        configuration.set("useTab", core.useTab);
         configuration.set("except", core.exception);
         configuration.set("opt", core.opt.stream().map(UUID::toString).collect(Collectors.toList()));
         try {

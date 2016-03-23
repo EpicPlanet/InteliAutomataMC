@@ -26,6 +26,7 @@ import java.util.UUID;
 public class InteliAutomataMC {
     public List<UUID> opt;
     public boolean isDefault;
+    public boolean useTab;
     public List<String> exception;
     public String koMessage;
     public String unkoMessage;
