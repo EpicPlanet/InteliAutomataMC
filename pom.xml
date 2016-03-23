@@ -93,7 +93,7 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.8-SNAPSHOT</version>
+            <version>1.9-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
             <optional>true</optional>
@@ -101,7 +101,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <version>1.9-R0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
             <optional>true</optional>
@@ -116,6 +116,11 @@
             <id>ossrh-snapshots</id>
             <name>OSSRH-Snapshots</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+		<repository>
+            <id>spigot-repo</id>
+			<name>SpigotMC-Nexus</name>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
