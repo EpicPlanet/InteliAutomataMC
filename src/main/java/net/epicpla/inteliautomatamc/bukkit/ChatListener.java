@@ -44,7 +44,7 @@ public class ChatListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOW)
     public void onTab(PlayerChatTabCompleteEvent event) {
-        if (!plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && plugin.getCore().useTab)  {
+        if (!plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && plugin.getCore().useTab && event.getPlayer().hasPermission("inteliautomatabukkit.tab"))  {
             event.getTabCompletions().add(InteliAutomata.convert(event.getLastToken()));
         }
     }

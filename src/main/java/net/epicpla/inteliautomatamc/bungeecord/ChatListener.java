@@ -46,7 +46,7 @@ public class ChatListener implements Listener {
     @EventHandler(priority = EventPriority.LOW)
     public void onTab(TabCompleteEvent event) {
         if (!event.isCancelled() && event.getSender() instanceof ProxiedPlayer)
-            if (!plugin.getCore().isInputtingKorean(((ProxiedPlayer) event.getSender()).getUniqueId()) && plugin.getCore().useTab)  {
+            if (!plugin.getCore().isInputtingKorean(((ProxiedPlayer) event.getSender()).getUniqueId()) && plugin.getCore().useTab && ((ProxiedPlayer) event.getSender()).hasPermission("inteliautomatabungeecord.tab"))  {
                 String[] cursor = event.getCursor().split(" ");
                 String lastToken = cursor[cursor.length - 1];
                 event.getSuggestions().add(InteliAutomata.convert(lastToken));
