@@ -1,4 +1,5 @@
 default: false
+useTab: true
 except: []
 lang:
   ko: §e[!] 한글 채팅이 비활성화됩니다.
