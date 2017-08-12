@@ -26,7 +26,7 @@
 
     <groupId>net.epicpla</groupId>
     <artifactId>inteliautomatamc</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>InteliAutomataMC</name>
@@ -84,16 +84,16 @@
 
     <dependencies>
         <dependency>
-            <groupId>me.neder</groupId>
-            <artifactId>inteliautomata</artifactId>
-            <version>1.0.6</version>
+            <groupId>com.github.Neder</groupId>
+            <artifactId>InteliAutomata</artifactId>
+            <version>-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.9-SNAPSHOT</version>
+            <version>1.12-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
             <optional>true</optional>
@@ -101,7 +101,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.9-R0.1-SNAPSHOT</version>
+            <version>1.12-R0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
             <optional>true</optional>
@@ -121,6 +121,10 @@
             <id>spigot-repo</id>
 			<name>SpigotMC-Nexus</name>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
