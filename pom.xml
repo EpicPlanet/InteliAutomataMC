@@ -26,7 +26,7 @@
 
     <groupId>net.epicpla</groupId>
     <artifactId>inteliautomatamc</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
 
     <name>InteliAutomataMC</name>
@@ -49,10 +49,10 @@
     <developers>
         <developer>
             <name>Final Child</name>
-            <email>finalchild@epicpla.net</email>
-            <url>https://github.com/fcreloaded</url>
-            <organization>Epic Planet Minecraft Server</organization>
-            <organizationUrl>https://epicpla.net/</organizationUrl>
+            <email>finalchild@ourmc.space</email>
+            <url>https://github.com/finalchild</url>
+            <organization>Our Minecraft Space</organization>
+            <organizationUrl>https://ourmc.space</organizationUrl>
             <roles>
                 <role>developer</role>
             </roles>
@@ -61,18 +61,18 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:fcreloaded/InteliAutomataMC.git</connection>
-        <developerConnection>scm:git:git@github.com:fcreloaded/InteliAutomataMC.git</developerConnection>
+        <connection>scm:git:git@github.com:finalchild/InteliAutomataMC.git</connection>
+        <developerConnection>scm:git:git@github.com:finalchild/InteliAutomataMC.git</developerConnection>
         <tag>HEAD</tag>
-        <url>git@github.com:fcreloaded/InteliAutomataMC.git</url>
+        <url>git@github.com:finalchild/InteliAutomataMC.git</url>
     </scm>
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/fcreloaded/InteliAutomataMC/issues</url>
+        <url>https://github.com/finalchild/InteliAutomataMC/issues</url>
     </issueManagement>
     <ciManagement>
         <system>CircleCI</system>
-        <url>https://circleci.com/gh/fcreloaded/InteliAutomataMC</url>
+        <url>https://circleci.com/gh/finalchild/InteliAutomataMC</url>
     </ciManagement>
 
     <properties>
@@ -84,9 +84,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.Neder</groupId>
-            <artifactId>InteliAutomata</artifactId>
-            <version>-SNAPSHOT</version>
+            <groupId>me.neder</groupId>
+            <artifactId>inteliautomata</artifactId>
+            <version>1.0.7</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
@@ -101,7 +101,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.12-R0.1-SNAPSHOT</version>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
             <optional>true</optional>
@@ -115,16 +115,12 @@
             </releases>
             <id>ossrh-snapshots</id>
             <name>OSSRH-Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
 		<repository>
             <id>spigot-repo</id>
 			<name>SpigotMC-Nexus</name>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -133,7 +129,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.4.3</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

@@ -35,16 +35,15 @@ public class ChatListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onChat(AsyncPlayerChatEvent event) {
-        if (!event.isCancelled())
-            if (plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && event.getPlayer().hasPermission("inteliautomatabukkit.chat") && !plugin.getCore().isException(event.getMessage()))
-                event.setMessage(InteliAutomata.convert(event.getMessage()));
+        if (plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && event.getPlayer().hasPermission("inteliautomatabukkit.chat") && !plugin.getCore().isException(event.getMessage()))
+            event.setMessage(InteliAutomata.convert(event.getMessage()));
     }
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onTab(PlayerChatTabCompleteEvent event) {
-        if (!plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && plugin.getCore().useTab && event.getPlayer().hasPermission("inteliautomatabukkit.tab"))  {
+        if (!plugin.getCore().isInputtingKorean(event.getPlayer().getUniqueId()) && plugin.getCore().useTab && event.getPlayer().hasPermission("inteliautomatabukkit.tab")) {
             event.getTabCompletions().add(InteliAutomata.convert(event.getLastToken()));
         }
     }

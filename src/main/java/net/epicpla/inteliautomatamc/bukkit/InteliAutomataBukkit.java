@@ -26,10 +26,10 @@ import net.epicpla.inteliautomatamc.bukkit.commands.UnkoCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -41,16 +41,17 @@ public class InteliAutomataBukkit extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (!getDataFolder().exists())
-            if (!getDataFolder().mkdir())
-                return;
-        File file = new File(getDataFolder(), "config.yml");
-        if (!file.exists()) {
-            try (InputStream in = getResource("bukkitConfig.yml")) {
-                Files.copy(in, file.toPath());
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            Path dataFolder = getDataFolder().toPath();
+            Files.createDirectories(dataFolder);
+            Path configFile = dataFolder.resolve("config.yml");
+            if (Files.notExists(configFile)) {
+                try (InputStream in = getResource("bukkitConfig.yml")) {
+                    Files.copy(in, configFile);
+                }
             }
+        } catch (IOException e) {
+            throw new RuntimeException();
         }
 
         configuration = getConfig();

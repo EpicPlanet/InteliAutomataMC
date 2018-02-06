@@ -36,17 +36,17 @@ public class ChatListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onChat(ChatEvent event) {
         if (!event.isCancelled() && !event.isCommand() && event.getSender() instanceof ProxiedPlayer)
             if (plugin.getCore().isInputtingKorean(((ProxiedPlayer) event.getSender()).getUniqueId()) && ((ProxiedPlayer) event.getSender()).hasPermission("inteliautomatabungeecord.chat") && !plugin.getCore().isException(event.getMessage()))
                 event.setMessage(InteliAutomata.convert(event.getMessage()));
     }
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onTab(TabCompleteEvent event) {
         if (!event.isCancelled() && event.getSender() instanceof ProxiedPlayer)
-            if (!plugin.getCore().isInputtingKorean(((ProxiedPlayer) event.getSender()).getUniqueId()) && plugin.getCore().useTab && ((ProxiedPlayer) event.getSender()).hasPermission("inteliautomatabungeecord.tab"))  {
+            if (!plugin.getCore().isInputtingKorean(((ProxiedPlayer) event.getSender()).getUniqueId()) && plugin.getCore().useTab && ((ProxiedPlayer) event.getSender()).hasPermission("inteliautomatabungeecord.tab")) {
                 String[] cursor = event.getCursor().split(" ");
                 String lastToken = cursor[cursor.length - 1];
                 event.getSuggestions().add(InteliAutomata.convert(lastToken));

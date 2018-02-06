@@ -32,6 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -43,22 +44,18 @@ public class InteliAutomataBungeecord extends Plugin {
 
     @Override
     public void onEnable() {
-        if (!getDataFolder().exists())
-            if (!getDataFolder().mkdir())
-                return;
-        File file = new File(getDataFolder(), "config.yml");
-        if (!file.exists()) {
-            try (InputStream in = getResourceAsStream("bungeecordConfig.yml")) {
-                Files.copy(in, file.toPath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
         try {
-            configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
+            Path dataFolder = getDataFolder().toPath();
+            Files.createDirectories(dataFolder);
+            Path configFile = dataFolder.resolve("config.yml");
+            if (Files.notExists(configFile)) {
+                try (InputStream in = getResourceAsStream("bungeecordConfig.yml")) {
+                    Files.copy(in, configFile);
+                }
+            }
+            configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(configFile.toFile());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
 
         core = new InteliAutomataMC();
